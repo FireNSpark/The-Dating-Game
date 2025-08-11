@@ -1,230 +1,148 @@
-index.html
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Unhinged — Love at First 🚩</title>
-<meta name="description" content="Put the 🚩 on the table first." />
-<meta name="theme-color" content="#da1a37" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0f0f12; --panel:#15151a; --muted:#9aa0a6; --text:#f5f7fa;
-    --red:#da1a37; --red-2:#ff4d6d; --border:#242432
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1140px;margin:0 auto;padding:24px}
-
-  /* Header */
-  header{position:sticky;top:0;z-index:20;background:rgba(15,15,18,.6);backdrop-filter:blur(8px);border-bottom:1px solid #22222b}
-  header .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
-  .logo{display:flex;align-items:center;gap:10px;font-weight:800}
-  .badge{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--red),var(--red-2))}
-  .mini{font-size:12px;opacity:.8;margin-top:-2px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;border-radius:14px;font-weight:700;cursor:pointer}
-  .btn-primary{background:linear-gradient(135deg,var(--red),var(--red-2));border:0;color:#fff}
-  .btn-ghost{border:1px solid #2a2a32;background:#141418;color:#fff}
-
-  /* Hero with couch bg + card rail */
-  .hero{position:relative;isolation:isolate}
-  .hero::before{
-    content:"";position:absolute;inset:0;z-index:-2;
-    background:url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=2200&q=80') center/cover no-repeat;
-    filter:grayscale(.15) contrast(1.05) brightness(.8)
-  }
-  .hero::after{
-    content:"";position:absolute;inset:0;z-index:-1;
-    background:linear-gradient(180deg, rgba(0,0,0,.38), rgba(0,0,0,.78))
-  }
-  .hero-inner{padding:60px 0 34px}
-  .hero-top{display:grid;gap:14px;justify-items:center;text-align:center}
-  .eyebrow{color:#ffd0d7;font-weight:800;letter-spacing:.8px;text-transform:uppercase;font-size:12px}
-  .title{font-size:clamp(36px,5.5vw,68px);line-height:1.04;margin:6px 0 6px;font-weight:800}
-  .sub{color:var(--muted);font-size:clamp(15px,2.3vw,18px);margin:0 0 10px}
-
-  /* Daters cards rail */
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:16px 0 18px;align-items:stretch}
-  .card{
-    position:relative;overflow:hidden;border:1px solid var(--border);border-radius:20px;background:#121218;
-    display:flex;flex-direction:column;min-height:360px;box-shadow:0 18px 50px rgba(0,0,0,.35)
-  }
-  .card .photo{position:relative;flex:1;background:#0b0b10}
-  .card .photo img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.02) saturate(1.02)}
-  .card .badge-live{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);
-    border:1px solid var(--border);border-radius:999px;padding:6px 10px;font-size:12px;display:inline-flex;gap:6px;align-items:center}
-  .dot{width:8px;height:8px;border-radius:50%;background:#ff3b47;display:inline-block}
-  .card .meta{padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
-  .name{font-weight:700}
-  .pill{font-size:12px;border:1px solid var(--border);padding:6px 10px;border-radius:999px;background:#1a1a22}
-
-  /* Big CTAs under cards */
-  .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:2px}
-  .cta-row .btn{min-width:200px}
-
-  /* About & Signup */
-  .section{padding:42px 0}
-  .panel{background:linear-gradient(180deg,#121218,#0f0f14);border:1px solid var(--border);border-radius:18px;padding:18px}
-  .muted{color:var(--muted)}
-  .small{font-size:12.5px;color:#8b90a0}
-
-  /* Inputs */
-  input[type=text], input[type=email]{
-    width:100%;background:#0f0f14;border:1px solid #2b2b36;border-radius:12px;padding:12px 14px;color:#fff
-  }
-
-  footer{padding:36px 0 28px;color:#8b90a0;border-top:1px solid #22222b;margin-top:20px}
-
-  @media (max-width:1000px){
-    .cards{grid-template-columns:1fr 1fr}
-  }
-  @media (max-width:680px){
-    .cards{grid-template-columns:1fr}
-    .cta-row .btn{width:100%}
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UNHINGED Dating — Admit the 🚩 first. Flirt second.</title>
+  <meta name="description" content="Unhinged Dating — the singles club for people who date like it’s a sport. Chaos Board, red‑flag quiz, Friends / FWB, and zero anonymity." />
+  <meta property="og:title" content="UNHINGED Dating — Join the Chaos" />
+  <meta property="og:description" content="Real names. Weekly verification. Chaos Board. If they still want you after your score… they’re a keeper." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta name="theme-color" content="#E11D2A" />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header class="topnav">
+    <div class="wrap">
+      <nav>
+        <a href="#profiles" class="navbtn">Profiles</a>
+        <a href="#chaos" class="navbtn">Chaos Board</a>
+        <a href="#live" class="navbtn">Live</a>
+        <a href="#reviews" class="navbtn">Reviews</a>
+        <a href="#friends" class="navbtn">Friends</a>
+        <a href="#fwb" class="navbtn">Friends w/ Benefits</a>
+        <a href="#join" class="navbtn cta">Join</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-  <div class="wrap row">
-    <div class="logo">
-      <div class="badge">🚩</div>
-      <div>
-        <div>Unhinged</div>
-        <div class="mini">Love at First 🚩</div>
+  <header class="hero">
+    <div class="wrap hero-bar">
+      <div class="logo">
+        <div class="mark"></div>
+        <div class="word">UNHINGED <span class="dating">DATING</span></div>
+      </div>
+      <div class="hero-copy">
+        <div id="tagline" class="tagline">Admit the 🚩 first. Flirt second.</div>
+        <div class="quiz-cta">
+          <button id="openQuiz" class="btn big">Take the Red Flag Quiz →</button>
+          <div class="sub">How many red flags are you starting with?</div>
+        </div>
       </div>
     </div>
-    <nav class="row" aria-label="site">
-      <a class="btn btn-ghost" href="#about">About</a>
-      <a class="btn btn-ghost" href="#signup">Sign Up</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
-<!-- HERO with daters cards -->
-<section class="hero">
-  <div class="wrap hero-inner">
-    <div class="hero-top">
-      <div class="eyebrow">put the 🚩 on the table first</div>
-      <h1 class="title">Date smarter. Start with the worst parts.</h1>
-      <p class="sub">Drop your red flags first. If they’re still in, that’s real.</p>
-    </div>
+  <main class="wrap">
+    <!-- Profiles rail -->
+    <section id="profiles">
+      <div class="rail-wrap"><div class="rail" id="rail"></div></div>
+    </section>
 
-    <div class="cards" aria-label="Featured daters">
-      <!-- Card 1 -->
-      <article class="card">
-        <div class="photo">
-          <img alt="Profile" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80">
-          <span class="badge-live"><span class="dot"></span> online</span>
+    <!-- Chaos Board -->
+    <section id="chaos">
+      <h2 class="h2">Chaos Board</h2>
+      <div class="board">
+        <div class="pins">
+          <div class="note" style="--rot:-1.8deg"><span class="tack"></span>
+            <div class="nf">“Started a fight club in college because I was bored.”</div>
+            <div class="nmeta">🚩 Red Flags: 3 · 👍 212</div>
+            <div class="scale"><div class="fill" style="width:78%"></div></div>
+          </div>
+          <div class="note" style="--rot:1.2deg"><span class="tack"></span>
+            <div class="nf">“Still hooks up with my ex every few months. It’s seasonal.”</div>
+            <div class="nmeta">🚩 Red Flags: 4 · 👍 168</div>
+            <div class="scale"><div class="fill" style="width:86%"></div></div>
+          </div>
+          <div class="note" style="--rot:-.6deg"><span class="tack"></span>
+            <div class="nf">“Forgot three birthdays in a row. But I’m very fun in May.”</div>
+            <div class="nmeta">🚩 Red Flags: 2 · 👍 94</div>
+            <div class="scale"><div class="fill" style="width:52%"></div></div>
+          </div>
         </div>
-        <div class="meta">
-          <span class="name">Rae, 27</span>
-          <span class="pill">🚩 Dark humor</span>
+      </div>
+    </section>
+
+    <!-- Live -->
+    <section id="live">
+      <h2 class="h2">Right now on Unhinged Live</h2>
+      <p class="note dim">Broadcast your questionable decisions in real time.</p>
+      <div class="livebox">
+        <span class="livebadge">LIVE</span>
+        <div class="static" aria-hidden="true"></div>
+        <div class="hud">🔥 1,842 watching</div>
+      </div>
+    </section>
+
+    <!-- Reviews preview -->
+    <section id="reviews">
+      <h2 class="h2">Wall of Shame — from real profiles</h2>
+      <div class="wall">
+        <div class="rev"><div class="rhead"><strong>Jamie</strong><span class="flames">🔥🔥🔥</span></div>
+          <div class="tags"><span class="tag">Ghosts for months</span><span class="tag">Drama magnet</span></div>
+          <p class="revtext">“Fun, chaotic, disappears for weeks. 7/10 would text again.”</p>
         </div>
-      </article>
-      <!-- Card 2 -->
-      <article class="card">
-        <div class="photo">
-          <img alt="Profile" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=900&q=80">
-          <span class="badge-live"><span class="dot"></span> online</span>
+        <div class="rev"><div class="rhead"><strong>Andre</strong><span class="flames">🔥🔥</span></div>
+          <div class="tags"><span class="tag">Financial chaos</span><span class="tag">Sleeps till 2PM</span></div>
+          <p class="revtext">“Nice but schedules dates like a crypto chart.”</p>
         </div>
-        <div class="meta">
-          <span class="name">Milo, 31</span>
-          <span class="pill">🚩 Gym > brunch</span>
+        <div class="rev"><div class="rhead"><strong>Rae</strong><span class="flames">🔥🔥🔥🔥</span></div>
+          <div class="tags"><span class="tag">Receipts ready</span><span class="tag">Most ghosted</span></div>
+          <p class="revtext">“Screenshots. For. Everything.”</p>
         </div>
-      </article>
-      <!-- Card 3 -->
-      <article class="card">
-        <div class="photo">
-          <img alt="Profile" src="https://images.unsplash.com/photo-1520810627419-35e3622e95ef?auto=format&fit=crop&w=900&q=80">
-          <span class="badge-live"><span class="dot"></span> online</span>
+      </div>
+    </section>
+
+    <!-- Friends / FWB -->
+    <section id="friends">
+      <h2 class="h2">Friends Mode</h2>
+      <p class="dim">Platonic chaos only. Meet people to hang with, no pressure, no weirdness.</p>
+    </section>
+    <section id="fwb">
+      <h2 class="h2">Friends with Benefits</h2>
+      <p class="dim">Adults being adults — with honesty and receipts. No catfish, no mystery handles.</p>
+    </section>
+
+    <!-- Join / Contribute -->
+    <section id="join">
+      <div class="signup">
+        <form id="joinForm" action="https://formsubmit.co/unfavorablejosh@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_subject" value="New Unhinged Signup" />
+          <label class="label">Name</label>
+          <input class="input" type="text" name="name" required placeholder="Your name" />
+          <label class="label">Email</label>
+          <input class="input" type="email" name="email" required placeholder="you@email.com" />
+          <button class="btn primary" type="submit">Join the chaos</button>
+          <div id="joinMsg" class="note">Ready.</div>
+        </form>
+        <div class="note contrib">
+          Help this startup get off the ground — chip in if you’re feeling chaotic.
+          <br><strong>$150 Lifetime Membership</strong> for early supporters.
         </div>
-        <div class="meta">
-          <span class="name">Nia, 29</span>
-          <span class="pill">🚩 Phone on DND</span>
+        <div class="pays">
+          <a class="pay venmo" href="https://venmo.com/Joshua-Kirkley" target="_blank" rel="noopener">Contribute via Venmo</a>
+          <a class="pay cashapp" href="https://cash.app/$Jkirk007" target="_blank" rel="noopener">Contribute via Cash App</a>
         </div>
-      </article>
-    </div>
+      </div>
+    </section>
+  </main>
 
-    <!-- Big CTAs -->
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#signup">Sign Up</a>
-      <a class="btn btn-ghost" href="#about">Learn More</a>
-    </div>
-  </div>
-</section>
+  <footer>
+    © <span id="year"></span> UNHINGED — dating for people who admit they’re the problem.
+  </footer>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <div class="wrap">
-    <div class="panel">
-      <h3 style="margin:0 0 8px">What is Unhinged?</h3>
-      <p class="muted" style="margin:0">
-        Dating without the audition. We lead with the stuff that usually shows up in month three.
-        Post your 🚩 first, filter by tolerance, and match with people who can handle your truth.
-        If they’re still in, that’s real.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- SIGN UP (Name + Email, dark inputs) -->
-<section id="signup" class="section">
-  <div class="wrap">
-    <div class="panel">
-      <h3 style="margin:0 0 6px">Sign Up</h3>
-      <p class="muted" style="margin:0 0 12px">Be first in when we open. Early testers are invited from this list.</p>
-      <form id="signup-form" method="POST" action="YOUR_APPS_SCRIPT_URL_HERE" onsubmit="return submitForm(event)">
-        <div class="row" style="gap:8px">
-          <input type="text"  name="name"  placeholder="Name"  aria-label="Name"  required style="flex:1">
-          <input type="email" name="email" placeholder="Email" aria-label="Email" required style="flex:1">
-        </div>
-        <div class="row" style="gap:12px;margin-top:14px">
-          <button class="btn btn-primary" type="submit" id="signup-btn">Sign Up</button>
-        </div>
-        <div id="status" class="small" role="status" style="margin-top:8px"></div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap small">© <span id="year"></span> Unhinged. Built by UnfavorableJosh.</div>
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Minimal submit → Google Apps Script Web App
-  async function submitForm(e){
-    e.preventDefault();
-    const form = e.target;
-    const btn  = document.getElementById('signup-btn');
-    const status = document.getElementById('status');
-
-    btn.disabled = true; const initial = btn.textContent; btn.textContent = 'Sending…';
-    status.textContent = 'Sending…';
-
-    try{
-      const res = await fetch(form.action, { method:'POST', body:new FormData(form) });
-      if(res.ok){
-        form.reset();
-        btn.textContent = 'You’re in ✅';
-        status.textContent = 'You’re on the list. See you in beta.';
-        setTimeout(()=>{ btn.disabled=false; btn.textContent=initial; status.textContent=''; }, 1500);
-      }else{
-        btn.disabled=false; btn.textContent=initial; status.textContent='Try again in a moment.';
-      }
-    }catch{
-      btn.disabled=false; btn.textContent=initial; status.textContent='Network hiccup. Try again.';
-    }
-    return false;
-  }
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
