@@ -1,7 +1,41 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta // script.js const WEBHOOK_URL = ""; // e.g. "https://script.google.com/macros/s/XYZ/exec"
+
+const $ = (sel) => document.querySelector(sel);
+
+window.addEventListener("DOMContentLoaded", () => { const y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
+
+const form = $("#waitlist"); const email = $("#email"); const msg = $("#formMsg"); const btn = $("#joinBtn");
+
+if (!form) return;
+
+form.addEventListener("submit", async (e) => { e.preventDefault(); if (!email.value) return;
+
+setState("loading");
+try {
+  if (!WEBHOOK_URL) throw new Error("Missing WEBHOOK_URL");
+
+  const res = await fetch(WEBHOOK_URL, {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({ email: email.value.trim(), source: "unhinged-teaser" })
+  });
+
+  if (!res.ok) throw new Error("Bad response");
+  setState("ok", "Got you. Check your inbox.");
+  form.reset();
+} catch (err) {
+  setState("err", "Something broke. Try again.");
+  console.warn(err);
+}
+
+});
+
+function setState(state, text="Joining…") { if (!msg || !btn) return; msg.className = "form__msg"; btn.disabled = state === "loading"; btn.textContent = state === "loading" ? "Joining…" : "Join waitlist"; if (state === "ok") { msg.classList.add("ok"); msg.textContent = text; } if (state === "err") { msg.classList.add("err"); msg.textContent = text; } if (state === "idle") { msg.textContent = ""; } } });
+
+="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Unhinged — Radical Honesty Dating</title>
   <meta name="description" content="Post your red flags. Find your people." />
